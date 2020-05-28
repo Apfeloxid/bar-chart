@@ -1,6 +1,7 @@
 const h = 550;
 const w = 1000;
 const padding = 40;
+const barWidth = 3.4;
 
 fetch("https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json")
     .then(response => response.json())
@@ -41,7 +42,7 @@ fetch("https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
             .append("rect")
             .attr("x", (d, i) => xScale(datesAsDate[i]))
             .attr("y", d => yScale(d[1]))
-            .attr("width", "4px")
+            .attr("width", barWidth + "px")
             .attr("height", (d) => h - padding - yScale(d[1]))
             .attr("fill", "black")
             .attr("class", "bar")
@@ -53,7 +54,7 @@ fetch("https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
                     .style("opacity", 0.85)
                 tooltip.html(`${convertDateToString(d[0])}<br>\$${d[1]} Billion`)
                     .attr("data-date", d[0])
-                    .style("left", padding + (i * 4) + "px")
+                    .style("left", padding + (i * barWidth) + "px")
                     .style("top", (h - 100) + "px")
                     .style('transform', 'translateX(100px)')
             })
