@@ -28,7 +28,6 @@ fetch("https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
         const tooltip = d3.select("main")
             .append("div")
             .attr("id", "tooltip")
-            .attr("class", "text-center")
             .style("opacity", 0);
 
         const svg = d3.select("main")
